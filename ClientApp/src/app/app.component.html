@@ -1,0 +1,15 @@
+<h1>SPA APP</h1>
+
+<h2>Weather</h2>
+
+<table>
+  @for (item of weather(); track $index) {
+    <tr>
+      <td>{{item.date}}</td>
+      <td>{{item.summary}}</td>
+      <td>{{item.temperatureC}}</td>
+    </tr>
+  }
+</table>
+
+<router-outlet />
