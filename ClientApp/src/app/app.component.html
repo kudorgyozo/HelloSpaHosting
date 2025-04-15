@@ -3,13 +3,30 @@
 <h2>Weather</h2>
 
 <table>
-  @for (item of weather(); track $index) {
+    @for (item of weather(); track $index) {
     <tr>
-      <td>{{item.date}}</td>
-      <td>{{item.summary}}</td>
-      <td>{{item.temperatureC}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.summary}}</td>
+        <td>{{item.temperatureC}}</td>
     </tr>
-  }
+    }
 </table>
+
+<button (click)="onLogin()">Login</button>
+<button (click)="onLogout()">Logout</button>
+<button (click)="onLogoutGoogle()">Logout Google</button>
+
+<button (click)="getUser()">GetUser</button>
+
+@if (userInfo()) {
+<div class="user-profile">
+
+    <img [src]="userInfo()?.picture" class="avatar" alt="User profile picture" />
+    <div class="user-info">
+        <div class="name">{{ userInfo()?.name }}</div>
+        <div class="email">{{ userInfo()?.email }}</div>
+    </div>
+</div>
+}
 
 <router-outlet />
